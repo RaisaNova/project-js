@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Explorer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2>Travel Explorer</h2>
+
+    <input type="text" id="searchInput" placeholder="Search destination...">
+
+    <select id="inputSort">
+      <option>Sort By</option>
+      <option>A - Z</option>
+      <option>Lowest 14 Days Price</option>
+      <option>Highest 14 Days Price</option>
+      <option>Lowest 28 Days Price</option>
+      <option>Highest 28 Days Price</option>
+    </select>
+
+    <select id="inputFilter">
+      <option>Filter Continent</option>
+      <option>Asia</option>
+      <option>Africa</option>
+      <option>America</option>
+      <option>Europe</option>
+      <option>Australia</option>
+    </select>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- PREVIEW -->
+    <section class="preview contentContainer">
+      <div class="overlay">
+        <div class="priceContainer">
+          <p>14 Hari || -</p>
+          <p>28 Hari || -</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARD LIST -->
+    <section class="listAttractionContainer">
+      <!-- from JS -->
+    </section>
+
+  </main>
+
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
