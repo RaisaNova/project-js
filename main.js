@@ -12,7 +12,7 @@ const touristAttraction = [
     {
         namaTempatWisata: "Taj Mahal",
         location: "India",
-        imageDocument: "images/tajMahal.jpg",
+        imageDocument: "images/tajmahal.jpg",
         price: {
             days14: 25000000,
             days28: 35000000
