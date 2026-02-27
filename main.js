@@ -2,7 +2,7 @@ const touristAttraction = [
     {
         namaTempatWisata: "Mt. Everest",
         location: "Nepal",
-        imageDocument: "images/backgroundMt.Everest.png",
+        imageDocument: "images/mteverest.jpg",
         price: {
             days14: 20000000,
             days28: 35000000
@@ -12,7 +12,7 @@ const touristAttraction = [
     {
         namaTempatWisata: "Taj Mahal",
         location: "India",
-        imageDocument: "images/tajMahal.webp",
+        imageDocument: "images/tajMahal.jpg",
         price: {
             days14: 25000000,
             days28: 35000000
@@ -22,7 +22,7 @@ const touristAttraction = [
     {
         namaTempatWisata: "Pyramid of Giza",
         location: "Egypt",
-        imageDocument: "images/PyramidOfGiza.jpg",
+        imageDocument: "images/pyramid.jpg",
         price: {
             days14: 25000000,
             days28: 50000000
@@ -32,7 +32,7 @@ const touristAttraction = [
     {
         namaTempatWisata: "Niagara Falls",
         location: "Canada",
-        imageDocument: "images/NiagaraFalls.jpg",
+        imageDocument: "images/niagara.jpg",
         price: {
             days14: 55000000,
             days28: 75000000
@@ -42,7 +42,7 @@ const touristAttraction = [
     {
         namaTempatWisata: "Eiffel Tower",
         location: "France",
-        imageDocument: "images/eiffelTower.jpg",
+        imageDocument: "images/eifel.jpg",
         price: {
             days14: 40000000,
             days28: 60000000
@@ -62,7 +62,7 @@ const touristAttraction = [
     {
         namaTempatWisata: "Burj Khalifa",
         location: "UAE",
-        imageDocument: "images/burjKhalifa.jpg",
+        imageDocument: "images/burjkhalifa.jpg",
         price: {
             days14: 20000000,
             days28: 40000000
@@ -72,7 +72,7 @@ const touristAttraction = [
     {
         namaTempatWisata: "Colosseum",
         location: "Italy",
-        imageDocument: "images/colosseum.jpg",
+        imageDocument: "images/colleseum.jpg",
         price: {
             days14: 45000000,
             days28: 70000000
@@ -82,7 +82,7 @@ const touristAttraction = [
     {
         namaTempatWisata: "Disney Land",
         location: "California",
-        imageDocument: "images/disneyLand.webp",
+        imageDocument: "images/disney.jpg",
         price: {
             days14: 50000000,
             days28: 90000000
@@ -92,7 +92,7 @@ const touristAttraction = [
     {
         namaTempatWisata: "Opera House",
         location: "Australia",
-        imageDocument: "images/operaHouse.jpg",
+        imageDocument: "images/opera.jpg",
         price: {
             days14: 20000000,
             days28: 30000000
@@ -108,10 +108,31 @@ function currencyRupiah(number) {
     }).format(number)
 }
 
+
+
 const listAttractionContainer = document.querySelector(".listAttractionContainer")
 touristAttraction.map(attractionList)
 
 function attractionList(e, index){
+
+    // --------------------- Search Data ---------------------
+
+const searchInput = document.getElementById("searchInput")
+searchInput.addEventListener("keyup", function (event) {
+    const keyword = event.target.value.toLowerCase().trim()
+    const cards = listAttractionContainer.querySelectorAll(".card")
+
+    cards.forEach(card => {
+        const name = card.querySelector("h3").textContent.toLowerCase()
+        const location = card.querySelector("small").textContent.toLowerCase()
+
+        if (name.includes(keyword) || location.includes(keyword)) {
+            card.style.display = ""
+        } else {
+            card.style.display = "none"
+        }
+    })
+})
 
   const card = document.createElement("div")
   card.className = "card"
