@@ -1,62 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Travel Explorer</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-<div class="app">
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-compass"></i></span>
+        <span class="logo-text">Travel <em>Explorer</em></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#destinations" class="nav-link">Destinations</a>
+        
+      </div>
+      <div class="nav-search">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Cari destinasi..." />
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <h2>Travel Explorer</h2>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Jelajahi Dunia Bersamamu</p>
+      <h1 class="hero-title">Temukan Destinasi<br /><em>Impianmu</em></h1>
+      <p class="hero-sub">Ratusan destinasi menakjubkan menunggumu — dari pantai tropis hingga pegunungan bersalju.</p>
+      <a href="#destinations" class="btn-hero">Mulai Petualangan <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-    <input type="text" id="searchInput" placeholder="Search destination...">
+  <!-- PREVIEW SECTION -->
+  <section class="preview-section" id="previewSection" style="display:none;">
+    <div class="preview-inner">
+      <button class="close-preview" id="closePreview"><i class="fa-solid fa-xmark"></i></button>
+      <div class="preview-img-wrap">
+        <img id="previewImg" src="" alt="" />
+        <div class="preview-img-overlay"></div>
+      </div>
+      <div class="preview-info">
+        <p class="preview-continent" id="previewContinent"></p>
+        <h2 class="preview-name" id="previewName"></h2>
+        <p class="preview-desc" id="previewDesc"></p>
+        <div class="preview-prices">
+          <div class="price-box">
+            <span class="price-label">14 Hari</span>
+            <span class="price-val" id="previewPrice14"></span>
+          </div>
+          <div class="price-box">
+            <span class="price-label">28 Hari</span>
+            <span class="price-val" id="previewPrice28"></span>
+          </div>
+        </div>
+        <a href="#" class="btn-book">Pesan Sekarang <i class="fa-solid fa-paper-plane"></i></a>
+      </div>
+    </div>
+  </section>
 
-    <select id="inputSort">
-      <option>Sort By</option>
-      <option>A - Z</option>
-      <option>Lowest 14 Days Price</option>
-      <option>Highest 14 Days Price</option>
-      <option>Lowest 28 Days Price</option>
-      <option>Highest 28 Days Price</option>
-    </select>
+  <!-- DESTINATIONS -->
+  <section class="destinations" id="destinations">
+    <div class="section-header">
+      <p class="section-eyebrow">Pilih & Jelajahi</p>
+      <h2 class="section-title">Destinasi Populer</h2>
+    </div>
 
-    <select id="inputFilter">
-      <option>Filter Continent</option>
-      <option>Asia</option>
-      <option>Africa</option>
-      <option>America</option>
-      <option>Europe</option>
-      <option>Australia</option>
-    </select>
-  </aside>
-
-  <!-- MAIN -->
-  <main class="main">
-
-    <!-- PREVIEW -->
-    <section class="preview contentContainer">
-      <div class="overlay">
-        <div class="priceContainer">
-          <p>14 Hari || -</p>
-          <p>28 Hari || -</p>
+    <!-- Controls -->
+    <div class="controls">
+      <div class="filter-group">
+        <span class="control-label"><i class="fa-solid fa-globe"></i> Benua</span>
+        <div class="filter-pills" id="filterPills">
+          <button class="pill active" data-continent="All">Semua</button>
+          <button class="pill" data-continent="Asia">Asia</button>
+          <button class="pill" data-continent="Africa">Afrika</button>
+          <button class="pill" data-continent="Europe">Eropa</button>
+          <button class="pill" data-continent="America">Amerika</button>
+          <button class="pill" data-continent="Australia">Australia</button>
         </div>
       </div>
-    </section>
+      <div class="sort-group">
+        <span class="control-label"><i class="fa-solid fa-arrow-up-wide-short"></i> Urutkan</span>
+        <select id="sortSelect" class="sort-select">
+          <option value="az">A – Z</option>
+          <option value="price14asc">Harga 14 Hari ↑</option>
+          <option value="price14desc">Harga 14 Hari ↓</option>
+          <option value="price28asc">Harga 28 Hari ↑</option>
+          <option value="price28desc">Harga 28 Hari ↓</option>
+        </select>
+      </div>
+    </div>
 
-    <!-- CARD LIST -->
-    <section class="listAttractionContainer">
-      <!-- from JS -->
-    </section>
+    <!-- Result Info -->
+    <p class="result-info" id="resultInfo"></p>
 
-  </main>
+    <!-- Cards Grid -->
+    <div class="cards-grid" id="cardsGrid"></div>
 
-</div>
+    <!-- Empty state -->
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <i class="fa-solid fa-map-location-dot"></i>
+      <p>Tidak ada destinasi yang ditemukan.</p>
+    </div>
+  </section>
 
-<script src="main.js"></script>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <i class="fa-solid fa-compass"></i> Travel <em>Explorer</em>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2025 Travel Explorer. All rights reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
